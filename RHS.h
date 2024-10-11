@@ -14,10 +14,10 @@ struct Payload{
     char temp[8];
 };
 
-class RHC{
+class RHS{
 public:
     Payload payload;
-    RHC(uint16_t speed = 2000, uint8_t rxPin = 2, uint8_t txPin = 12);
+    RHS(uint16_t speed = 2000, uint8_t rxPin = 2, uint8_t txPin = 12);
     bool init();
     void sendTemperature(float tmp); // used for sending Temperature to Master Arduino
     void sendInstruction(float tmp); // used for instructing Slave Arduino to regulate temperature

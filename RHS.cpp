@@ -1,14 +1,14 @@
-#include <RHC.h>
+#include <RHS.h>
 
-RHC::RHC(uint16_t speed = 2000, uint8_t rxPin = 2, uint8_t txPin = 12)
+RHS::RHS(uint16_t speed = 2000, uint8_t rxPin = 2, uint8_t txPin = 12)
 : driver(speed, rxPin, txPin){
 }
 
-bool RHC::init(){
+bool RHS::init(){
     return driver.init();
 }
 
-void RHC::sendTemperature(float tmp){
+void RHS::sendTemperature(float tmp){
     char msg[16];
     char floatStr[8];
 
@@ -20,7 +20,7 @@ void RHC::sendTemperature(float tmp){
     driver.waitPacketSent();
 }
 
-bool RHC::received(){
+bool RHS::received(){
     char buffer[16];
     uint8_t buflen = sizeof(buffer);
 
