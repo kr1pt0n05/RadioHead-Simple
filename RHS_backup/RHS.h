@@ -21,13 +21,10 @@ public:
     bool init();
     void sendTemperature(float tmp); // used for sending Temperature to Master Arduino
     void sendInstruction(float tmp); // used for instructing Slave Arduino to regulate temperature
+    bool received();
 
 private:
     RH_ASK driver;
-    static RHS* instance;
-
-    bool received();
-    static void available();
 };
 
 #endif
