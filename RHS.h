@@ -16,18 +16,19 @@ struct Payload{
 
 class RHS{
 public:
+    static bool RECV_FLAG;
     Payload payload;
     RHS(uint16_t speed = 2000, uint8_t rxPin = 2, uint8_t txPin = 12);
     bool init();
+    bool available();
     void sendTemperature(float tmp); // used for sending Temperature to Master Arduino
     void sendInstruction(float tmp); // used for instructing Slave Arduino to regulate temperature
 
 private:
     RH_ASK driver;
-    static RHS* instance;
 
     bool received();
-    static void available();
+    static void ISR_handler();
 };
 
 #endif
